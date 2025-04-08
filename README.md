@@ -1,8 +1,12 @@
-Pruebas de Carga con Locust para API de ML
+##Pruebas de Carga con Locust para API de ML##
 Este proyecto implementa pruebas de carga utilizando Locust para una API de inferencia de Machine Learning basada en FastAPI y MLflow.
+
 Autor
+
 Juan Felipe Gonzalez Sanmiguel
-Descripción
+
+
+
 El proyecto consta de varios componentes:
 
 Una API de inferencia desarrollada con FastAPI que consume un modelo entrenado almacenado en MLflow

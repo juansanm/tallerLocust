@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  api:
+    image: juanfelipe/ml-inference-api:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+      replicas: 1
+    networks:
+      - locust-network
+    restart: unless-stopped
+
+  locust-master:
+    image: locustio/locust
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./locust:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --master -H http://api:8000
+    networks:
+      - locust-network
+    depends_on:
+      - api
+
+  locust-worker:
+    image: locustio/locust
+    volumes:
+      - ./locust:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --worker --master-host locust-master
+    networks:
+      - locust-network
+    depends_on:
+      - locust-master
+    deploy:
+      replicas: 3
+
+networks:
+  locust-network:
+    driver: bridge

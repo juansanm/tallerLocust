@@ -1,4 +1,5 @@
-##Pruebas de Carga con Locust para API de ML##
+## Pruebas de Carga con Locust para API de ML 
+
 Este proyecto implementa pruebas de carga utilizando Locust para una API de inferencia de Machine Learning basada en FastAPI y MLflow.
 
 Autor
@@ -52,7 +53,7 @@ jsonCopy{
 
 
 
-Procedimiento de Prueba
+## Procedimiento de Prueba
 
 Abrir la interfaz web de Locust (http://localhost:8089)
 Configurar la prueba:
